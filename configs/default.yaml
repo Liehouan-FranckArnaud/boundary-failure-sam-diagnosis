@@ -1,0 +1,27 @@
+# PRICAI 2026 — Default Configuration
+seed: 42
+train_seed: 10
+test_seed: 30
+
+data:
+  train_configs: [low_burden, moderate_burden]
+  test_config: high_burden
+  val_config: crisis
+
+missingness:
+  rate: 0.30
+  scenarios: [Sc0, Sc1, Sc2, Sc3]
+
+models:
+  classifiers: [lr, rf, gb, xgboost]
+  primary: xgboost
+  cv_folds: 5
+
+evaluation:
+  boundary_whz_low: -3.2
+  boundary_whz_high: -2.8
+  boundary_muac_low: 113
+  boundary_muac_high: 117
+  who_muac_thresh_mm: 115.0   # <= 115mm (corrected)
+  who_whz_thresh: -3.0
+  min_recall_criterion: 0.90
